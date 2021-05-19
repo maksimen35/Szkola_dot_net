@@ -1,0 +1,740 @@
+using System;
+
+namespace Zmienne
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)        // pętla nieskończona
+            {
+                Console.Clear();        // czyszczenie ekranu konsoli
+                Console.WriteLine("Zadania do ćwiczenia Zmienne \r\n");
+                Console.WriteLine("1.Sprawdź dwie zmienne int i sprawdzi czy są one równe");
+                Console.WriteLine("2.Sprawdź czy liczba jest parzysta czy nieparzysta");
+                Console.WriteLine("3.Sprawdź czy a to liczba dodatnia czy ujemna.");
+                Console.WriteLine("4.Sprawdź czy podany przez użytkownika rok jest rokiem przestępnym");
+                Console.WriteLine("5.Sprawdź wiek uprawnia go do ubiegania się o stanowisko posła, premiera, sentarora, prezydenta.");
+                Console.WriteLine("6.Sprawdź wzrost użytkownika i przypisze mu wymyśloną kategorię wzrostu");
+                Console.WriteLine("7.Sprawdź 3 liczby i poda która jest największa");
+                Console.WriteLine("8.Sprawdź czy kandydat może ubiegać się o miejsce na studiach");//Wynik z Matury z matematyki powyżej 70,Wynik z fizyki powyżej 55, Wynik z chemii powyżej 45, Łączny wynik z 3 przedmiotów powyżej 180
+                Console.WriteLine("9.Sprawdzi odczytną temperaturę I zwróci nazwę jak w poniższych kryteriach");
+                Console.WriteLine("10.Sprawdź czy z trzech podanych długości można stworzyć trójkąt");
+                Console.WriteLine("11.Program który zmienia ocenę ucznia na jej opis");
+                Console.WriteLine("12.Program który pobierze numer dnia tygodnia i wyświetli jego nazwę");
+                Console.WriteLine("13.Program kalkulator");
+                Console.WriteLine();
+                Console.WriteLine("0.Koniec Programu");
+                Console.WriteLine();
+                Console.WriteLine("Wprowadź 1,2...13 or 0 by wybrać i naciśnij Enter");
+
+                String choise = Console.ReadLine();
+
+                Console.WriteLine($"Wybrano opcje {choise}");
+
+                switch (Int32.Parse(choise))
+                {
+                    case 0:
+                        Environment.Exit(0);        // zamknięcie programu
+                        break;
+                    case 1:
+                        zadanie1();                 // przejdz do funkcji zadanie1
+                        break;
+                    case 2:
+                        zadanie2();
+                        break;
+                    case 3:
+                        zadanie3();
+                        break;
+                    case 4:
+                        zadanie4();
+                        break;
+                    case 5:
+                        zadanie5();
+                        break;
+                    case 6:
+                        zadanie6();
+                        break;
+                    case 7:
+                        zadanie7();
+                        break;
+                    case 8:
+                        zadanie8();
+                        break;
+                    case 9:
+                        zadanie9();
+                        break;
+                    case 10:
+                        zadanie10();
+                        break;
+                    case 11:
+                        zadanie11();
+                        break;
+                    case 12:
+                        zadanie12();
+                        break;
+                    case 13:
+                        zadanie13();
+                        break;
+                    default:
+                        break;
+
+                }
+
+
+
+
+            }
+        }
+
+       
+
+        public static void zadanie1()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+                int b;
+                Console.Clear();
+                Console.WriteLine("Zadanie 1 \"PORÓWNANIE LICZB\"\r\n");
+
+                Console.WriteLine("Podaj zmienną a:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+
+                Console.WriteLine("Podaj zmienną b:");
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out b);
+
+
+                Console.WriteLine();
+                if (a > b) { Console.WriteLine($"Liczba a={a} jest większa od b={b}"); }
+                else if (a < b) { Console.WriteLine($"Liczba b={b} jest większa od a={a}"); }
+                else { Console.WriteLine($"Liczba a=b i wynosi {a}"); }
+                //    throw new NotImplementedException();
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+                
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+               
+
+            }
+           // return;
+            //throw new NotImplementedException();
+        }
+
+        private static void zadanie2()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+                int b;
+                Console.Clear();
+                Console.WriteLine("Zadanie 2 \"Sprawdza czy liczba jest parzysta\"\r\n");
+
+                Console.WriteLine("Podaj zmienną a:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+                if (a < 0) b = a * (-1);
+                else b = a;
+                b = b % 2;
+
+
+                Console.WriteLine();
+                if (b>0) { Console.WriteLine($"Liczba a={a} jest nie parzysta"); } 
+                else { Console.WriteLine($"Liczba a={a} jest parzysta "); }
+                //    throw new NotImplementedException();
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+        private static void zadanie3()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+               
+                Console.Clear();
+                Console.WriteLine("Zadanie 3 \"Sprawdza czy liczba jest odatnia czy ujemna\"\r\n");
+
+                Console.WriteLine("Podaj zmienną a:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+                Console.WriteLine();
+                if (a > 0) { Console.WriteLine($"Liczba a={a} jest dodatnia"); }
+                else if(a<0){ Console.WriteLine($"Liczba a={a} jest ujemna "); }
+                else { Console.WriteLine($"Liczba a={a} jest zero "); }
+                //    throw new NotImplementedException();
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+        private static void zadanie4()
+        {
+            /*
+            Aby ustalić, czy rok jest rokiem przestępnym, wykonaj następujące kroki:
+
+   1. Jeśli rok jest równomiernie podzielny przez 4, przejdź do kroku 2.Jeśli nie, przejdź do kroku 5.
+   2. Jeśli rok jest równomiernie podzielny przez 100, przejdź do kroku 3.Jeśli nie, przejdź do kroku 4.
+   3. Jeśli rok jest równomiernie podzielny przez 400, przejdź do kroku 4.Jeśli nie, przejdź do kroku 5.
+   4. Rok jest rokiem przestępnym(ma 366 dni).
+   5. Rok nie jest rokiem przestępnym(ma 365 dni).
+            */
+
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+                int b;
+                Console.Clear();
+                Console.WriteLine("Zadanie 4 \"Sprawdza czy rok jest rokiem przestępnym\"\r\n");
+
+                Console.WriteLine("Podaj rok:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+                Console.WriteLine();
+                b = a % 4;                           // sprawdza czy rok jest podzielny przez 4
+
+                if (b == 0)
+                {
+                    b = a % 100;                    // sprawdza czy rok jest podzielny przez 100
+                    if (b == 0) 
+                    {
+                        b = a % 400;                // sprawdza czy rok jest podzielny przez 400
+                        if (b == 0) { Console.WriteLine($"Rok {a} jest rokiem przestępnym(ma 366 dni)."); }
+                        else        { Console.WriteLine($"Rok {a} nie jest rokiem przestępnym(ma 365 dni)."); }
+
+                    }
+                    else 
+                    
+                    {
+                        Console.WriteLine($"Rok {a} jest rokiem przestępnym(ma 366 dni).");
+                    }
+
+
+                }
+                else 
+                {
+                    Console.WriteLine($"Rok {a} nie jest rokiem przestępnym(ma 365 dni).");
+
+                }
+
+
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+        private static void zadanie5()
+        {
+/*
+ * 
+ *          poseł        - wiek >21
+            senator      - wiek >30
+            Premier      -z posła >21 z senatora >30
+            prezydent    - wiek >35 lat
+*/
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+              
+                Console.Clear();
+                Console.WriteLine("Zadanie 5 \"Sprawdza wiek uprawnia go do ubiegania się o stanowisko posła, premiera, sentarora, prezydenta.\"\r\n");
+
+                Console.WriteLine("Podaj swój wiek:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+                Console.WriteLine();
+
+                if (a < 21) { Console.WriteLine($"W wieku {a} musisz jeszcze poczekać by móc kandydować na stanowisko posła"); }
+                else if (a >= 21 && a<30 ) { Console.WriteLine($"W wieku {a} możesz ubiegać się o stanowisko posła a także premiera, gdy zostaniesz wybrany przez Prezydenta"); }
+                else if (a >= 30 && a<35 ) { Console.WriteLine($"W wieku {a} możesz ubiegać się o stanowisko posła, senatora a także premiera, gdy zostaniesz wybrany przez Prezydenta"); }
+                else { 
+                                    Console.WriteLine($"W wieku {a} możesz ubiegać się o stanowisko posła, senatora a także premiera, gdy zostaniesz wybrany przez Prezydenta."); 
+                                    Console.WriteLine("Masz już wiek by móc kandydować na Prezydenta"); 
+                                }
+                //    throw new NotImplementedException();
+
+
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+        private static void zadanie6()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+               
+                Console.Clear();
+                Console.WriteLine("Zadanie 6 \"Sprawdza wzrost użytkownika i przypisze mu wymyśloną kategorię wzrostu\"\r\n");
+
+                Console.WriteLine("Podaj swój wzrost :");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+                Console.WriteLine();
+                if (a <= 150) { Console.WriteLine($"Twój wzrost {a} jest wzrostem niziołka"); }
+                else if (a > 150 && a<=160 ) { Console.WriteLine($"Twój wzrost {a} jest wzrostem dorostka"); }
+                else if (a > 160 && a <= 170) { Console.WriteLine($"Twój wzrost {a} jest wzrostem rostka"); }
+                else if (a > 170 && a <= 180) { Console.WriteLine($"Twój wzrost {a} jest wzrostem przeciętniaka"); }
+                else if (a > 180 && a <= 190) { Console.WriteLine($"Twój wzrost {a} jest wzrostem wyrostka"); }
+                if (a > 190) { Console.WriteLine($"Twój wzrost {a} jest wzrostem wyniosłego"); }
+               
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+
+        private static void zadanie7()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+                int b;
+                int c;
+
+                int[] tab = new int[3]; // deklaracja tablicy trzy elementowej 
+                Console.Clear();
+                Console.WriteLine("Zadanie 7 \"Sprawdza która z 3 liczb jest największa\"\r\n");
+
+                Console.WriteLine("Podaj zmienną a:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+                tab[0] = a;
+
+                Console.WriteLine("Podaj zmienną b:");
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out b);
+                tab[1] = b;
+
+                Console.WriteLine("Podaj zmienną c:");
+                 dana = Console.ReadLine();
+                Int32.TryParse(dana, out c);
+                tab[2] = c;
+
+                Console.WriteLine();        // pusty wiersz
+                Array.Sort(tab);            // sortuje tablice od najmniejszej do jawiekszej
+                Console.Write("liczby: ");
+                if (tab[2] == a) { Console.Write(a); Console.Write(" "); }
+                else if (tab[2] == b) { Console.Write(b); Console.Write(" "); }
+                else if (tab[2] == c) { Console.Write(c); Console.Write(" "); }
+
+                if (tab[1] == a) { Console.Write(a); Console.Write(" "); }
+                else if (tab[1] == b) { Console.Write(b); Console.Write(" "); }
+                else if (tab[1] == c) { Console.Write(c); Console.Write(" "); }
+
+                if (tab[0] == a) { Console.Write(a); Console.Write(" "); }
+                else if (tab[0] == b) { Console.Write(b); Console.Write(" "); }
+                else if (tab[0] == c) { Console.Write(c); Console.Write(" "); }
+
+                Console.WriteLine();        // pusty wiersz
+
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+
+        private static void zadanie8()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+                int b;
+                int c;
+
+               
+                Console.Clear();
+                Console.WriteLine("Zadanie 8 \"Sprawdza masz szanse na studiach\"\r\n");
+
+                Console.WriteLine("Podaj wyniki z matematyki:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+               
+
+                Console.WriteLine("Podaj wynik z fizyki:");
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out b);
+               
+
+                Console.WriteLine("Podaj wynik z chemi:");
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out c);
+                Console.WriteLine();        // pusty wiersz
+
+
+                if ((a > 70) && (b > 55) && (c > 45)) { Console.WriteLine("Kandydat dopuszczony do rekrutacji"); }
+                else if ((a + b + c > 180) || (a + b > 150) || (a + c > 150))
+                {
+                    Console.WriteLine("Kandydat dopuszczony do rekrutacji");
+
+                }
+                else { Console.WriteLine("Kandydat odrzucony z rekrutacji"); }
+                
+                
+                
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+
+        private static void zadanie9()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+               
+
+
+                Console.Clear();
+                Console.WriteLine("Zadanie 9 \"Sprawdza i opisuje temperature\"\r\n");
+
+                Console.WriteLine("Podaj temperatur:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+
+                if (a < 0) { Console.WriteLine($"jest {a}°C i cholernie piździ "); }
+                else if ((a > 0) && (a <= 10)) { Console.WriteLine($"jest {a}°C i jest zimno "); }
+                else if ((a > 10) && (a <= 20)) { Console.WriteLine($"jest {a}°C i jest chłodno  "); }
+                else if ((a > 20) && (a <= 30)) { Console.WriteLine($"jest {a}°C i jest w sam raz "); }
+                else if ((a > 30) && (a <= 40)) { Console.WriteLine($"jest {a}°C i zaczyna być słabo, bo gorąco "); }
+                else { Console.WriteLine($"jest {a}°C  a weź wyprowadzam się na Alaskę "); }
+
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+        private static void zadanie10()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+                int b;
+                int c;
+
+                
+                Console.Clear();
+                Console.WriteLine("Zadanie 10 \"Sprawdza czy z trzech odcinków da się zrobić trójkąt\"\r\n");
+
+                Console.WriteLine("Podaj długość a:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+                
+
+                Console.WriteLine("Podaj długość b:");
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out b);
+               
+
+                Console.WriteLine("Podaj długość c:");
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out c);
+               
+
+                Console.WriteLine();        // pusty wiersz
+                if ((a > 0) && (b > 0) && (c > 0)) {
+                    if ((a > b) && (a > c))         // gdy a jest największe
+                    {
+                        if ((b + c) > a) { Console.WriteLine($"Z długości {a} {b} {c} da się zbudować trójąt"); }
+                        else { Console.WriteLine($"Z długości {a} {b} {c} nie da się zbudować trójąta"); }
+
+                    }
+                    else if ((b > a) && (b > c))    // gdy b jest jawiększe
+                    {
+                        if ((a + c) > b) { Console.WriteLine($"Z długości {a} {b} {c} da się zbudować trójąt"); }
+                        else { Console.WriteLine($"Z długości {a} {b} {c} nie da się zbudować trójąta"); }
+
+                    }
+                    else if ((c > a) && (c > b))        // gdy c jest największe
+                    {
+                        if ((a + b) > c) { Console.WriteLine($"Z długości {a} {b} {c} da się zbudować trójąt"); }
+                        else { Console.WriteLine($"Z długości {a} {b} {c} nie da się zbudować trójąta"); }
+                    }
+
+                } else 
+                {
+
+                    Console.WriteLine($"Z długości {a} {b} {c} nie da się zbudować trójąta");
+                }
+
+
+               
+
+
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+
+        private static void zadanie11()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+
+
+
+                Console.Clear();
+                Console.WriteLine("Zadanie 11 \"Program który zmienia ocenę ucznia na jej opis\"\r\n");
+
+                Console.WriteLine("Podaj ocene:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+                Console.WriteLine();        // pusty wiersz
+                if (a==1) { Console.WriteLine($"Ocena {a} - Niedostateczny"); }
+                else if (a==2) { Console.WriteLine($"Ocena {a} - Celujący"); }
+                else if (a==3) { Console.WriteLine($"Ocena {a} - Dopuszczający "); }
+                else if (a==3) { Console.WriteLine($"Ocena {a} - Dostateczny "); }
+                else if (a==4) { Console.WriteLine($"Ocena {a} - Dobry"); }
+                else if (a == 5) { Console.WriteLine($"Ocena {a} - Bardzo dobry"); }
+                else if (a == 6) { Console.WriteLine($"Ocena {a} - Celujący"); }
+                else { }
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+
+        private static void zadanie12()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                int a;
+
+                Console.Clear();
+
+               
+                // a = Int32.TryParse(dt.DayOfWeek);
+
+               
+                Console.WriteLine("Zadanie 12 \"Program który zmienia ocenę ucznia na jej opis\"\r\n");
+
+                var value = DateTime.Today;
+                Console.WriteLine("Dziś jest "+string.Format("{0:dddd}", value));
+
+                Console.WriteLine("Podaj dzień:");
+                string dana = Console.ReadLine();
+                Int32.TryParse(dana, out a);
+
+                Console.WriteLine();        // pusty wiersz
+                if (a == 1) { Console.WriteLine($"Podałeś dzień {a} jest to pomiedziałek "); }
+                else if (a == 2) { Console.WriteLine($"Podałeś dzień {a} jest to wtorek "); }
+                else if (a == 3) { Console.WriteLine($"Podałeś dzień {a} jest to środak "); }
+                else if (a == 4) { Console.WriteLine($"Podałeś dzień {a} jest to czwartek "); }
+                else if (a == 5) { Console.WriteLine($"Podałeś dzień {a} jest to piątek "); }
+                else if (a == 6) { Console.WriteLine($"Podałeś dzień {a} jest to sobota "); }
+                else if (a == 7) { Console.WriteLine($"Podałeś dzień {a} jest to niedziela "); }
+                else{ }
+
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+        private static void zadanie13()
+        {
+            bool dzalanie = true;
+            while (dzalanie)
+            {
+                double a;
+                double b;
+                int c;
+                double wynik;
+                string wynik_str;
+                Console.Clear();
+                Console.WriteLine("Zadanie 13 \"Kalkulator\"\r\n");
+
+                Console.WriteLine("Podaj 1 liczba:");
+                string dana = Console.ReadLine();
+                double.TryParse(dana, out a);
+
+                Console.WriteLine("Podaj 2 liczba:");
+                dana = Console.ReadLine();
+                double.TryParse(dana, out b);
+
+                Console.WriteLine();        // pusty wiersz
+                Console.WriteLine("\r\n Podaj numer operacji do wykonania: ");
+                Console.WriteLine("1. Dodawanie");
+                Console.WriteLine("2. Odejmowanie");
+                Console.WriteLine("3. Mnożenie");
+                Console.WriteLine("4. Dzielenie");
+
+                dana = Console.ReadLine();
+                Int32.TryParse(dana, out c);
+
+                Console.WriteLine();        // pusty wiersz
+                if (c == 1) { wynik = a + b; Console.WriteLine($"wynik to {wynik} "); }
+                else if (c == 2) { wynik = a - b; Console.WriteLine($"wynik to {wynik} "); }
+                else if (c == 3) { wynik = a * b; Console.WriteLine($"wynik to {wynik} "); }
+                else if (c == 4) {
+                    if (b != 0)
+                    {
+                        wynik = a / b;
+                        wynik_str = wynik.ToString();
+                        
+                        
+                        Console.WriteLine($"wynik to "+ wynik_str);
+                    }
+                    else { Console.WriteLine("Nie można dzielić przez 0" ); }
+                }
+
+                Console.WriteLine("\r\n Czy chcesz jeszcze raz ??");
+
+                Console.WriteLine("T - lub dowolny klawisz lub N - powrót do poprzedniego menu");
+                dana = Console.ReadLine();
+                dana = dana.ToUpper();
+                if (dana == "N")
+                {
+                    dzalanie = false;
+                }
+
+
+            }
+        }
+
+
+
+
+    }
+
+   
+}
